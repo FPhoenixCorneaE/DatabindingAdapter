@@ -8,18 +8,25 @@ import com.fphoenixcorneae.databinding.widget.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private var mViewBinding: ActivityMainBinding? = null
+    private var _viewBinding: ActivityMainBinding? = null
+    private val mViewBinding get() = _viewBinding!!
     private val mViewModel by viewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mViewBinding = ActivityMainBinding.inflate(layoutInflater)
-        mViewBinding?.apply {
+        _viewBinding = ActivityMainBinding.inflate(layoutInflater).apply {
+            Thread.sleep(500)
             lifecycleOwner = this@MainActivity
             setContentView(root)
+        }
+        initView()
+        initObserver()
+    }
+
+    private fun initView() {
+        mViewBinding.apply {
             viewModel = mViewModel
         }
-        initObserver()
     }
 
     private fun initObserver() {
@@ -27,11 +34,14 @@ class MainActivity : AppCompatActivity() {
             textViewChecked.observe(this@MainActivity) {
                 Log.d("inverseBinding", "textViewChecked: $it")
             }
+            checkBoxChecked.observe(this@MainActivity) {
+                Log.d("inverseBinding", "checkBoxChecked: $it")
+            }
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        mViewBinding = null
+        _viewBinding = null
     }
 }

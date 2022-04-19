@@ -8,5 +8,6 @@ import androidx.lifecycle.ViewModel
  * @date：2022/04/18 11:45
  */
 class MainViewModel : ViewModel() {
-    val textViewChecked = MutableLiveData(true)
+    val textViewChecked = MutableLiveData(false)
+    val checkBoxChecked = MutableLiveData(false)
 }

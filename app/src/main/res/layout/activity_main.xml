@@ -21,7 +21,7 @@
             android:padding="16dp"
             app:layout_constraintTop_toTopOf="parent">
 
-            <com.fphoenixcorneae.databinding.widget.InverseBindingCheckedTextView
+            <com.fphoenixcorneae.databinding.widget.CheckedTextView
                 android:id="@+id/checkedTextView"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -34,6 +34,19 @@
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 tools:ignore="HardcodedText" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/materialCheckBox"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:button="@null"
+                android:checked="@={viewModel.checkBoxChecked}"
+                android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
+                android:drawableTint="@color/purple_700"
+                android:text="MaterialCheckBox"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText,UnusedAttribute" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
