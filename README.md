@@ -1,2 +1,2 @@
-# databinding-adapter
-## DatabindingAdapter
+# DatabindingAdapter
+
