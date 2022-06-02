@@ -3,7 +3,8 @@ package com.fphoenixcorneae.databinding.adapters
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
-import com.fphoenixcorneae.databinding.widget.OnCheckedChangeListener
+import com.fphoenixcorneae.widget.CheckedTextView
+import com.fphoenixcorneae.widget.OnCheckedChangeListener
 
 @BindingAdapter("android:checked")
 fun setChecked(view: android.widget.CheckedTextView, checked: Boolean) {
@@ -19,15 +20,15 @@ fun getChecked(view: android.widget.CheckedTextView): Boolean {
 
 @BindingAdapter(value = ["android:onCheckedChanged", "android:checkedAttrChanged"], requireAll = false)
 fun setListener(
-    view: com.fphoenixcorneae.databinding.widget.CheckedTextView,
+    view: CheckedTextView,
     onCheckedChangeListener: OnCheckedChangeListener?,
     checkedAttrChanged: InverseBindingListener?
 ) {
     if (checkedAttrChanged == null) {
         view.setOnCheckedChangeListener(onCheckedChangeListener)
     } else {
-        view.setOnCheckedChangeListener { buttonView, isChecked ->
-            onCheckedChangeListener?.invoke(buttonView, isChecked)
+        view.setOnCheckedChangeListener { checkedTextView, isChecked ->
+            onCheckedChangeListener?.invoke(checkedTextView, isChecked)
             checkedAttrChanged.onChange()
         }
     }

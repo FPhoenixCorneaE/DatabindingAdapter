@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _viewBinding = ActivityMainBinding.inflate(layoutInflater).apply {
-            Thread.sleep(500)
             lifecycleOwner = this@MainActivity
             setContentView(root)
         }

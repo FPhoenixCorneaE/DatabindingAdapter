@@ -1,4 +1,4 @@
-package com.fphoenixcorneae.databinding.widget
+package com.fphoenixcorneae.widget
 
 import android.content.Context
 import android.util.AttributeSet
@@ -11,8 +11,9 @@ import androidx.appcompat.widget.AppCompatCheckedTextView
  */
 class CheckedTextView @JvmOverloads constructor(
     context: Context,
-    attrs: AttributeSet? = null
-) : AppCompatCheckedTextView(context, attrs) {
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : AppCompatCheckedTextView(context, attrs, defStyleAttr) {
 
     private var mOnCheckedChangeListener: OnCheckedChangeListener? = null
 
@@ -26,5 +27,12 @@ class CheckedTextView @JvmOverloads constructor(
     }
 }
 
-typealias OnCheckedChangeListener = (checkedTextView: CheckedTextView, isChecked: Boolean) -> Unit
+/**
+ * @desc：OnCheckedChangeListener
+ * @date：2022/04/18 09:50
+ */
+typealias OnCheckedChangeListener = (
+    @ParameterName("checkedTextView") CheckedTextView,
+    @ParameterName("isChecked") Boolean
+) -> Unit
 

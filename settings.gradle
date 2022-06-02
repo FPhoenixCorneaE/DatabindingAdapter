@@ -5,6 +5,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "inverse-binding-view"
+rootProject.name = "DataBindingAdapter"
 include ':app'
-include ':inverse-binding'
+include ':data-binding-adapter'
