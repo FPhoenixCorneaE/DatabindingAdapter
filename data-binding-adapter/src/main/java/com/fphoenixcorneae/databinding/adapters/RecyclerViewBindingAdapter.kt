@@ -12,10 +12,10 @@ fun initRecycler(
     adapter: RecyclerView.Adapter<*>? = null,
     layoutManager: RecyclerView.LayoutManager? = LinearLayoutManager(recyclerView.context),
 ) {
-    adapter?.also {
+    adapter?.let {
         recyclerView.adapter = it
     }
-    layoutManager?.also {
+    layoutManager?.let {
         recyclerView.layoutManager = it
     }
 }
