@@ -1,5 +1,6 @@
 package com.fphoenixcorneae.databinding.widget
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
@@ -10,4 +11,8 @@ import androidx.lifecycle.ViewModel
 class MainViewModel : ViewModel() {
     val textViewChecked = MutableLiveData(false)
     val checkBoxChecked = MutableLiveData(false)
+
+    fun onLoadMore() {
+        Log.d("MainViewModel", "onLoadMore()")
+    }
 }

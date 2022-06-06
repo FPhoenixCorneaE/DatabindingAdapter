@@ -8,6 +8,14 @@
         <variable
             name="viewModel"
             type="com.fphoenixcorneae.databinding.widget.MainViewModel" />
+
+        <variable
+            name="recyclerAdapter"
+            type="com.fphoenixcorneae.databinding.widget.RecyclerViewAdapter" />
+
+        <variable
+            name="recyclerLayoutManager"
+            type="androidx.recyclerview.widget.RecyclerView.LayoutManager" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -54,8 +62,11 @@
                 android:layout_height="48dp" />
 
             <androidx.recyclerview.widget.RecyclerView
+                adapter="@{recyclerAdapter}"
+                manager="@{recyclerLayoutManager}"
+                onLoadMore="@{() -> viewModel.onLoadMore()}"
                 android:layout_width="match_parent"
-                android:layout_height="100dp" />
+                android:layout_height="200dp" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

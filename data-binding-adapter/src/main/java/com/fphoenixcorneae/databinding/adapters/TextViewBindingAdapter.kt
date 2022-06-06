@@ -8,11 +8,11 @@ import androidx.databinding.BindingAdapter
  * 添加删除线
  */
 @BindingAdapter(value = ["strikeThru"], requireAll = false)
-fun TextView.setStrikeThru(enable: Boolean) {
+fun setStrikeThru(textView: TextView, enable: Boolean) {
     // 添加删除线
-    paintFlags = if (enable) {
-        paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+    textView.paintFlags = if (enable) {
+        textView.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
     } else {
-        paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+        textView.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
     }
 }

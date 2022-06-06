@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import com.fphoenixcorneae.databinding.widget.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +26,8 @@ class MainActivity : AppCompatActivity() {
     private fun initView() {
         mViewBinding.apply {
             viewModel = mViewModel
+            recyclerAdapter = RecyclerViewAdapter()
+            recyclerLayoutManager = GridLayoutManager(this@MainActivity, 2)
         }
     }
 

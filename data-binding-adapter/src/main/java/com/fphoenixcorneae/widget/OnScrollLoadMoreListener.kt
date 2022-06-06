@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
  * @desc：向上滑动加载更多监听
  * @date：2022/05/24 11:22
  */
-class OnScrollLoadMoreListener(
+open class OnScrollLoadMoreListener(
     /** 加载更多 */
-    val onLoadMore: (() -> Unit)? = null
+    private val onLoadMoreListener: OnLoadMoreListener? = null
 ) : RecyclerView.OnScrollListener() {
 
     override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
@@ -25,10 +25,18 @@ class OnScrollLoadMoreListener(
                     // 判断是否最后一项完全显示
                     if (lastCompletelyVisibleItemPosition == itemCount - 1) {
                         // 加载更多
-                        onLoadMore?.invoke()
+                        onLoadMoreListener?.onLoadMore()
                     }
                 }
             }
         }
     }
+}
+
+/**
+ * @desc：OnLoadMoreListener
+ * @date：2022/06/06 11:33
+ */
+interface OnLoadMoreListener{
+    fun onLoadMore()
 }
