@@ -9,11 +9,22 @@ import androidx.databinding.BindingAdapter
  */
 @BindingAdapter(value = ["strikeThru"], requireAll = false)
 fun setStrikeThru(textView: TextView, enable: Boolean) {
-    // 添加删除线
     textView.paintFlags = if (enable) {
         textView.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
     } else {
         textView.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+    }
+}
+
+/**
+ * 添加下划线
+ */
+@BindingAdapter(value = ["underline"], requireAll = false)
+fun setUnderline(textView: TextView, enable: Boolean) {
+    textView.paintFlags = if (enable) {
+        textView.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+    } else {
+        textView.paintFlags and Paint.UNDERLINE_TEXT_FLAG.inv()
     }
 }
 

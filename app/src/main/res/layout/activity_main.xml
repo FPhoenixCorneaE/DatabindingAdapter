@@ -31,6 +31,9 @@
 
             <com.fphoenixcorneae.widget.CheckedTextView
                 android:id="@+id/checkedTextView"
+                isFakeBoldText="@{viewModel.textViewChecked}"
+                strikeThru="@{viewModel.textViewChecked}"
+                underline="@{viewModel.textViewChecked}"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:checkMark="?android:attr/listChoiceIndicatorMultiple"
