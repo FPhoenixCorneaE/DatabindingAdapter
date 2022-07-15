@@ -39,7 +39,7 @@ fun isSelected(view: View, selected: Boolean) {
 @BindingAdapter(value = ["onSingleClick"], requireAll = false)
 fun setOnSingleClick(
     view: View,
-    onSingleClick: View.OnClickListener
+    onSingleClick: View.OnClickListener,
 ) {
     val hits = LongArray(2)
     view.setOnClickListener {
@@ -69,7 +69,7 @@ fun setOnMultiClick(
     view: View,
     clickTimes: Int,
     duration: Long,
-    onClickListener: View.OnClickListener
+    onClickListener: View.OnClickListener,
 ) {
     var tempClickTimes = clickTimes
     if (tempClickTimes <= 2) {
@@ -91,5 +91,18 @@ fun setOnMultiClick(
             // 初始化点击次数
             hits = LongArray(tempClickTimes)
         }
+    }
+}
+
+/**
+ * 设置长按监听
+ */
+@BindingAdapter(value = ["onLongClick"], requireAll = false)
+fun setOnLongClick(
+    view: View,
+    onLongClick: View.OnLongClickListener,
+) {
+    view.setOnLongClickListener {
+        return@setOnLongClickListener onLongClick.onLongClick(it)
     }
 }

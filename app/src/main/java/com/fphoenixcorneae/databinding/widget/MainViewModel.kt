@@ -15,4 +15,14 @@ class MainViewModel : ViewModel() {
     fun onLoadMore() {
         Log.d("MainViewModel", "onLoadMore()")
     }
+
+    fun onLongClick(): Boolean {
+        Log.d("MainViewModel", "onLongClick()")
+        // 返回 false-会继续响应 onClick(), true-不会响应 onClick()
+        return false
+    }
+
+    fun onClick() {
+        Log.d("MainViewModel", "onClick()")
+    }
 }

@@ -36,7 +36,7 @@
                 android:checkMark="?android:attr/listChoiceIndicatorMultiple"
                 android:checkMarkTint="@color/purple_700"
                 android:checked="@={viewModel.textViewChecked}"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:onClick="@{() -> checkedTextView.toggle()}"
                 android:text="CheckedTextView"
                 android:textColor="@color/black"
@@ -47,6 +47,7 @@
                 android:id="@+id/materialCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:background="@null"
                 android:button="@null"
                 android:checked="@={viewModel.checkBoxChecked}"
                 android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
@@ -60,6 +61,17 @@
                 requestFocus="@{viewModel.checkBoxChecked}"
                 android:layout_width="match_parent"
                 android:layout_height="48dp" />
+
+            <Button
+                onLongClick="@{() -> viewModel.onLongClick()}"
+                onSingleClick="@{() -> viewModel.onClick()}"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="OnLongClick"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
 
             <androidx.recyclerview.widget.RecyclerView
                 adapter="@{recyclerAdapter}"
