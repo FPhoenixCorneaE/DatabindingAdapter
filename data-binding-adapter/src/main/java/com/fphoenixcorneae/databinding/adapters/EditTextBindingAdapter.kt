@@ -11,6 +11,7 @@ import androidx.databinding.BindingAdapter
 @BindingAdapter(value = ["requestFocus"], requireAll = false)
 fun requestFocus(editText: EditText, b: Boolean) {
     if (b) {
+        editText.isFocusable = true
         editText.isFocusableInTouchMode = true
         editText.setSelection(editText.text.length)
         editText.requestFocus()
