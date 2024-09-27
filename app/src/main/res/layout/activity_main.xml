@@ -7,81 +7,132 @@
 
         <variable
             name="viewModel"
-            type="com.fphoenixcorneae.databinding.widget.MainViewModel" />
+            type="com.fphoenixcorneae.databinding.demo.MainViewModel" />
 
         <variable
             name="recyclerAdapter"
-            type="com.fphoenixcorneae.databinding.widget.RecyclerViewAdapter" />
+            type="com.fphoenixcorneae.databinding.demo.RecyclerViewAdapter" />
 
         <variable
             name="recyclerLayoutManager"
             type="androidx.recyclerview.widget.RecyclerView.LayoutManager" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent">
 
-            <com.fphoenixcorneae.widget.CheckedTextView
-                android:id="@+id/checkedTextView"
-                isFakeBoldText="@{viewModel.textViewChecked}"
-                strikeThru="@{viewModel.textViewChecked}"
-                underline="@{viewModel.textViewChecked}"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
-                android:checkMarkTint="@color/purple_700"
-                android:checked="@={viewModel.textViewChecked}"
-                android:gravity="center_vertical"
-                android:onClick="@{() -> checkedTextView.toggle()}"
-                android:text="CheckedTextView"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                tools:ignore="HardcodedText" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/materialCheckBox"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@null"
-                android:button="@null"
-                android:checked="@={viewModel.checkBoxChecked}"
-                android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
-                android:drawableTint="@color/purple_700"
-                android:text="MaterialCheckBox"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                tools:ignore="HardcodedText,UnusedAttribute" />
+                <ProgressBar
+                    android:id="@+id/pbProgress"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    backgroundTintDefault="@{@android:color/darker_gray}"
+                    progressDrawableHeightDp="@{4f}"
+                    progressDrawableRadiusDp="@{2f}"
+                    progressTintDefault="@{@android:color/holo_red_light}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@{16f}"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="@{16f}"
+                    android:backgroundTint="@{&quot;#15800ff00&quot;}"
+                    android:max="100"
+                    android:progress="75"
+                    android:progressDrawable="@drawable/layerlist_pb_progress_drawable"
+                    android:progressTint="@{&quot;#166ff0000&quot;}" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                requestFocus="@{viewModel.checkBoxChecked}"
-                android:layout_width="match_parent"
-                android:layout_height="48dp" />
+                <com.fphoenixcorneae.widget.CheckedTextView
+                    android:id="@+id/checkedTextView"
+                    isFakeBoldText="@{viewModel.textViewChecked}"
+                    strikeThru="@{viewModel.textViewChecked}"
+                    underline="@{viewModel.textViewChecked}"
+                    android:layout_width="match_parent"
+                    android:layout_height="@{36f, default=wrap_content}"
+                    android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                    android:checkMarkTint="@color/purple_700"
+                    android:checked="@={viewModel.textViewChecked}"
+                    android:gravity="center_vertical"
+                    android:onClick="@{() -> checkedTextView.toggle()}"
+                    android:text="CheckedTextView"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
 
-            <Button
-                onLongClick="@{() -> viewModel.onLongClick()}"
-                onSingleClick="@{() -> viewModel.onClick()}"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="OnLongClick"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                android:textSize="16sp"
-                tools:ignore="HardcodedText" />
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/materialCheckBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:background="@null"
+                    android:button="@null"
+                    android:checked="@={viewModel.checkBoxChecked}"
+                    android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
+                    android:drawableTint="@color/purple_700"
+                    android:text="MaterialCheckBox"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,UnusedAttribute" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                adapter="@{recyclerAdapter}"
-                manager="@{recyclerLayoutManager}"
-                onLoadMore="@{() -> viewModel.onLoadMore()}"
-                android:layout_width="match_parent"
-                android:layout_height="200dp" />
-        </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.appcompat.widget.AppCompatEditText
+                    requestFocus="@{viewModel.checkBoxChecked}"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLongClick"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    defaultStrokeColor="@{@android:color/holo_red_light}"
+                    onLongClick="@{() -> viewModel.onLongClick(btnLongClick)}"
+                    onSingleClick="@{() -> viewModel.onClick(btnLongClick)}"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:text="OnLongClick"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    app:backgroundTint="@{@android:color/darker_gray}"
+                    app:strokeColor="@{&quot;#0000ff&quot;}"
+                    app:strokeWidth="2dp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    maxHeightDp="@{36f}"
+                    maxWidthDp="@{200f}"
+                    textColorString="@{&quot;#000000&quot;}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="4dp"
+                    android:autoSizeMaxTextSize="14sp"
+                    android:autoSizeMinTextSize="8sp"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="center_vertical"
+                    android:text="最大宽度为200dp最大高度为36dp最大宽度为200dp最大高度为36dp"
+                    android:textSize="14sp"
+                    tools:ignore="HardcodedText" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvRecycler"
+                    adapter="@{recyclerAdapter}"
+                    onLoadMore="@{() -> viewModel.onLoadMore(rvRecycler)}"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:layoutManager="@{recyclerLayoutManager}" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>

@@ -920,7 +920,7 @@ object Drawables {
 
     @Keep
     @IntDef(ShapeMode.RECTANGLE, ShapeMode.OVAL, ShapeMode.LINE, ShapeMode.RING)
-    @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
+    @Retention(AnnotationRetention.SOURCE)
     annotation class ShapeMode {
         companion object {
             const val RECTANGLE = GradientDrawable.RECTANGLE
@@ -943,7 +943,7 @@ object Drawables {
 
     @Keep
     @IntDef(GradientType.LINEAR, GradientType.RADIAL, GradientType.SWEEP)
-    @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
+    @Retention(AnnotationRetention.SOURCE)
     annotation class GradientType {
         companion object {
             const val LINEAR = 0
@@ -963,7 +963,7 @@ object Drawables {
         Orientation.LEFT_RIGHT,
         Orientation.TL_BR
     )
-    @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
+    @Retention(AnnotationRetention.SOURCE)
     annotation class Orientation {
         companion object {
             const val TOP_BOTTOM = 0
@@ -979,6 +979,6 @@ object Drawables {
 
     @Keep
     @Target(AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.FIELD)
-    @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
+    @Retention(AnnotationRetention.SOURCE)
     internal annotation class DP
 }

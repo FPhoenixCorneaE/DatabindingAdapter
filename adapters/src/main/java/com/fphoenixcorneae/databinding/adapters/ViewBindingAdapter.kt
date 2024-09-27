@@ -2,9 +2,70 @@ package com.fphoenixcorneae.databinding.adapters
 
 import android.os.SystemClock
 import android.view.View
+import android.view.ViewGroup
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import androidx.databinding.BindingAdapter
+import kotlin.math.roundToInt
+
+/**
+ * 注意：设置"android:layout_width"、"android:layout_height"时需要设置一个default值，否则会报
+ * You must supply a layout_width(或layout_height) attribute 错误。
+ *
+ * 示例：
+ * android:layout_height="@{4f, default=wrap_content}"
+ */
+@BindingAdapter(
+    value = [
+        "android:layout_width",
+        "android:layout_height",
+        "android:layout_marginStart",
+        "android:layout_marginTop",
+        "android:layout_marginEnd",
+        "android:layout_marginBottom",
+    ],
+    requireAll = false
+)
+fun View.setLayoutAttrs(
+    widthDp: Float?,
+    heightDp: Float?,
+    marginStartDp: Float?,
+    marginTopDp: Float?,
+    marginEndDp: Float?,
+    marginBottomDp: Float?,
+) {
+    widthDp?.let {
+        updateLayoutParams {
+            width = (it * resources.displayMetrics.density).roundToInt()
+        }
+    }
+    heightDp?.let {
+        updateLayoutParams {
+            height = (it * resources.displayMetrics.density).roundToInt()
+        }
+    }
+    marginStartDp?.let {
+        updateLayoutParams<ViewGroup.MarginLayoutParams> {
+            marginStart = (it * resources.displayMetrics.density).roundToInt()
+        }
+    }
+    marginTopDp?.let {
+        updateLayoutParams<ViewGroup.MarginLayoutParams> {
+            topMargin = (it * resources.displayMetrics.density).roundToInt()
+        }
+    }
+    marginEndDp?.let {
+        updateLayoutParams<ViewGroup.MarginLayoutParams> {
+            marginEnd = (it * resources.displayMetrics.density).roundToInt()
+        }
+    }
+    marginBottomDp?.let {
+        updateLayoutParams<ViewGroup.MarginLayoutParams> {
+            bottomMargin = (it * resources.displayMetrics.density).roundToInt()
+        }
+    }
+}
 
 /**
  * 设置可见或隐藏

@@ -1,9 +1,9 @@
-package com.fphoenixcorneae.databinding.widget
+package com.fphoenixcorneae.databinding.demo
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.fphoenixcorneae.databinding.widget.databinding.ItemRecyclerBinding
+import com.fphoenixcorneae.databinding.demo.databinding.ItemRecyclerBinding
 
 class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 

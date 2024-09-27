@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.fphoenixcorneae.widget.OnLoadMoreListener
 import com.fphoenixcorneae.widget.OnScrollLoadMoreListener
 
-@BindingAdapter(value = ["adapter", "manager"], requireAll = false)
+@BindingAdapter(value = ["adapter", "layoutManager"], requireAll = false)
 fun initRecycler(
     recyclerView: RecyclerView,
     adapter: RecyclerView.Adapter<*>? = null,

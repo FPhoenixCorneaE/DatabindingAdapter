@@ -1,4 +1,4 @@
-package com.fphoenixcorneae.databinding.widget
+package com.fphoenixcorneae.databinding.demo
 
 import org.junit.Test
 

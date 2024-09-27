@@ -1,4 +1,4 @@
-package com.fphoenixcorneae.databinding.widget
+package com.fphoenixcorneae.databinding.demo
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

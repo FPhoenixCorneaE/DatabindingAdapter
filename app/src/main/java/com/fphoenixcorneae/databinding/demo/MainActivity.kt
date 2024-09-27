@@ -1,11 +1,11 @@
-package com.fphoenixcorneae.databinding.widget
+package com.fphoenixcorneae.databinding.demo
 
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import com.fphoenixcorneae.databinding.widget.databinding.ActivityMainBinding
+import com.fphoenixcorneae.databinding.demo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
