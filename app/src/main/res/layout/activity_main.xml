@@ -49,7 +49,10 @@
                     android:max="100"
                     android:progress="75"
                     android:progressDrawable="@drawable/layerlist_pb_progress_drawable"
-                    android:progressTint="@{&quot;#166ff0000&quot;}" />
+                    android:progressTint="@{&quot;#166ff0000&quot;}"
+                    tools:backgroundTint="#5800ff00"
+                    tools:layout_height="4dp"
+                    tools:progressTint="#66ff0000" />
 
                 <com.fphoenixcorneae.widget.CheckedTextView
                     android:id="@+id/checkedTextView"
@@ -131,6 +134,7 @@
                     onLoadMore="@{() -> viewModel.onLoadMore(rvRecycler)}"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
+                    android:nestedScrollingEnabled="@{true}"
                     app:layoutManager="@{recyclerLayoutManager}" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

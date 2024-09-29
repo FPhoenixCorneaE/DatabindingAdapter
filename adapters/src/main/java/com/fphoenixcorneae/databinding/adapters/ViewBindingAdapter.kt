@@ -1,13 +1,32 @@
 package com.fphoenixcorneae.databinding.adapters
 
+import android.graphics.Outline
 import android.os.SystemClock
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewOutlineProvider
+import androidx.annotation.FloatRange
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.databinding.BindingAdapter
 import kotlin.math.roundToInt
+
+/**
+ * @param radiusDp 裁剪圆角的半径; 小于0时, 使用高度的一半
+ */
+@BindingAdapter("clipRoundRadiusDp")
+fun View.clipRoundCorner(@FloatRange(from = 0.0) radiusDp: Float) {
+    outlineProvider = object : ViewOutlineProvider() {
+        override fun getOutline(view: View?, outline: Outline?) {
+            val height = view?.height ?: return
+            val radius =
+                if (radiusDp < 0f) height / 2f else radiusDp * resources.displayMetrics.density
+            outline?.setRoundRect(0, 0, view.width, height, radius)
+        }
+    }
+    clipToOutline = true
+}
 
 /**
  * 注意：设置"android:layout_width"、"android:layout_height"时需要设置一个default值，否则会报
