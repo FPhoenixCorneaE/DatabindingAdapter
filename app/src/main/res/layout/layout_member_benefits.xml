@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.fphoenixcorneae.databinding.demo.memberbenefit.MemberBenefitsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <com.fphoenixcorneae.databinding.demo.memberbenefit.MemberBenefitsTopView
+            android:id="@+id/clTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/pbMemberBenefits"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            progressDrawableHeightDp="@{4f}"
+            progressDrawableRadiusDp="@{2f}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@{&quot;#5800ff00&quot;}"
+            android:max="@{viewModel.totalProgress}"
+            android:progress="@{viewModel.currentProgress}"
+            android:progressDrawable="@drawable/layerlist_pb_progress_drawable"
+            android:progressTint="@{&quot;#66ff0000&quot;}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clTop"
+            tools:backgroundTint="#5800ff00"
+            tools:layout_height="4dp"
+            tools:max="5"
+            tools:progress="1"
+            tools:progressTint="#66ff0000" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

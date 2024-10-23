@@ -128,6 +128,12 @@
                     android:textSize="14sp"
                     tools:ignore="HardcodedText" />
 
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/flMemberBenefits"
+                    android:name="com.fphoenixcorneae.databinding.demo.memberbenefit.MemberBenefitsFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvRecycler"
                     adapter="@{recyclerAdapter}"
